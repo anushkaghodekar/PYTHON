@@ -1,0 +1,71 @@
+//1. create n write to file
+//2. read content line by line n print it 
+//3. append line at end
+//4. count no of words n display total
+//5. copy all to another file n print both files
+//6. create marks file, with students name n marks, read print average n print lowest n highest
+
+
+1.
+with open("task1.txt","w") as f:
+    f.write("hello python\n")
+    f.write("im learning shit\n")
+    f.write("first file hehe")
+print("file has been created n written")
+
+2.
+with open("task1.txt","r") as f:
+    for line in f:
+        print(line.strip())
+
+3. 
+with open("task1.txt","a") as f:
+    f.write("New line added\n")
+
+with open("task1.txt","r") as f:
+    print(f.read())
+    
+4. 
+with open("task1.txt","r") as f:
+    content = f.read()
+    words=content.split()
+    print("total words are ", len(words))
+
+5.
+with open("task1.txt", "r") as source:
+    new = source.read()
+
+with open("task1copy.txt","w") as target:
+    target.write(new)
+
+print("og content:")
+print(new)
+
+with open("task1copy.txt","r") as f:
+    print(f.read())
+
+6.
+with open("marks.txt","w") as f:
+    f.write("anushka,98\n")
+    f.write("asmi,99\n")
+    f.write("tanvi,97\n")
+
+with open("marks.txt","r") as f:
+    data = f.readlines()
+
+marks=[]
+students={}
+
+for line in data:
+    name,score = line.strip().split(",")
+    score=int(score)
+    marks.append(score)
+    students[name] = score
+
+avg = sum(marks)/len(marks)
+highest= max(students, key=students.get)
+lowest = min(students, key=students.get)
+
+print("average is ", avg)
+print("highest is " , highest)
+print("lowest is ", lowest)
