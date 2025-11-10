@@ -1,0 +1,84 @@
+//1. func to square a num
+//2.func for odd or even
+//3.func to count vowels
+//4. func to find largest in 3 numbers
+//5.func to calc factorial of no
+//6. func to check palindrome
+//7.print list of sqares from 1 to 50
+//8. func to check prime or no
+
+1.
+def square(num):
+    return num*num
+n=int(input("enter number"))
+print(square(n))
+
+2.
+def oddeven(num):
+    if num%2==0:
+        print("even")
+    else:
+        print("odd")
+n=int(input("enter num"))
+oddeven(n)
+
+3.
+def vowels(word):
+    vowels="aeiouAEIOU"
+    count=0
+    for ch in word:
+        if ch in vowels:
+            count = count+1
+    return count
+
+word=str(input("enter a line"))
+vowels(word)
+
+4.
+def largest():
+    if a>=b and a>=c:
+        print(a,"is largest")
+    elif b>=a and b>=c:
+        print(b,"is largest")
+    else:
+        print(c,"is largest")
+a=int(input("enter 1st num"))
+b=int(input("enter 2nd num"))
+c=int(input("enter 3rd num"))
+largest()
+
+5.
+def fact(num):
+    f=1
+    for i in range(1,num+1):
+        f=f*i
+    return f
+n=int(input("enter num"))
+fact(n)
+
+6.
+def palindrome(s):
+    if s==s[::-1]:
+        return "is palindrome"
+    else:
+        return "is not palindrome"
+line=str(input("enter a string"))
+palindrome(line)
+
+7.
+squares=[]
+for i in range(1,51):
+    squares.append(i*i)
+print(squares)
+
+8.
+def prime(n):
+    if n==1:
+        return "neither prime nor composite"
+    else:
+        for i in range(2,n):
+            if n%i==0:
+                return "not prime"
+        return "prime"
+num=int(input("enter num"))
+prime(num)
