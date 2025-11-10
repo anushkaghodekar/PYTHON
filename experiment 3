@@ -1,0 +1,146 @@
+//1. class car with brand, model, year. 2 objects and print details
+//2. class student with name, rollno, method display(), 3 objects to call method
+//3. class bankaccount with acc number n balance, methods deposit n withdraw n show balance, object for this 
+//4. class circle with methods area n circumference, object 
+//5. class book with title, child class library with methods add book, borrow book, return book, display 
+//6. class student with name, marks average, method find topper 
+
+1. 
+class Car:
+   def __init__(self,brand,model,year):
+       self.brand=brand
+       self.model=model
+       self.year=year
+       
+   def showinfo(self):
+        print(self.brand,self.model,self.year)
+        
+car1=Car("hyundai",20,2024)
+car2=Car("aura",30,2023)
+
+car1.showinfo()
+car2.showinfo()
+
+2.
+class Student:
+    def __init__(self,name,roll,age):
+        self.name= name
+        self.roll= roll
+        self.age= age
+
+    def display(self):
+        print(self.name,self.roll,self.age)
+
+s1=Student("asmi kadam",3024120,18)
+s2=Student("tanvi satwe", 3024121, 18)
+s3=Student("anushka ghodekar", 3024122, 19)
+
+s1.display()
+s2.display()
+s3.display()
+
+3. 
+class Bank:
+    def __init__(self,acc_number,balance=0):
+        self.acc_number=acc_number
+        self.balance=balance
+
+    def deposit(self,amount):
+        self.balance= self.balance + amount
+        print(amount, "deposited")
+        print("balance is :", self.balance)
+
+    def withdraw(self,amount):
+        if amount<=self.balance:
+            self.balance-= amount
+            print(amount, "withdrawn")
+            print("balance is :", self.balance)
+        else:
+            print("insufficient balance")
+
+    def showbalance(self):
+        print("total balance : ", self.balance)
+
+a1=Bank(3024120,500)
+a1.deposit(200)
+a1.withdraw(100)
+a1.showbalance()
+
+4.
+import math
+
+class Circle:
+    def __init__(self,radius):
+        self.radius=radius
+
+    def area(self):
+        return math.pi+self.radius*self.radius
+
+    def circum(self):
+        return 2*math.pi*self.radius
+
+r1=Circle(4)
+print(r1.area(), "is area")
+print(r1.circum(), "is circumference")
+
+5. 
+class Book:
+    def __init__(self,title):
+        self.title=title
+
+class Library:
+    def __init__(self):
+        self.books=[]
+
+    def addbook(self,title):
+        self.title=title
+
+    def borrow(self,title):
+        for book in self.books:
+            if book.title == title and not book.borrowed:
+                book.borrowed=True
+                print("book borrowed", title)
+                return
+            print("book not available")
+
+    def returnbook(self,title):
+        for book in self.books:
+            if book.title == title and book.borrowed:
+                book.borrowed = False
+                print("book returned", title)
+                return
+            print("this book was already borrowed")
+
+    def display(self):
+        for book in self.books:
+            status = "available" if not book.borrowed else "borrowed"
+            print(book.title, status) 
+
+lib= Library()
+lib.addbook("harry potter")
+lib.addbook("percy jackson")
+lib.display()
+lib.borrow("harry potter")
+lib.display()
+
+6.
+class Student:
+    def __init__(self,name,marks):
+        self.name= name
+        self.marks= marks
+        self.average = sum(marks)/len(marks)
+
+    def topper(students):
+        topper= max(students, key=lambda s:s.average)
+        print("topper is",topper.name, topper.average)
+        
+s1=Student("asmi kadam",[18,19,20])
+s2=Student("tanvi satwe",[18,40,100])
+s3=Student("anushka ghodekar" ,[19,40,60])
+
+students=[s1,s2,s3] 
+for s in students:
+    print(s.name, "-", s.average)
+    
+topper(students)
+
