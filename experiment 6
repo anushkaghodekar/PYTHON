@@ -1,0 +1,40 @@
+1. import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('Ecommerce Purchases.csv')
+df.head()
+
+2.
+df.columns, df.shape
+
+3.
+df['Purchase Price'].mean()
+
+4.
+df['Purchase Price'].max(), df['Purchase Price'].min()
+
+5.
+(df['Job']=='Lawyer').sum()
+
+6.
+len(df[(df['CC Provider'] == 'American Express') & (df['Purchase Price']>95)])
+
+7.
+df['Credit Card']=df['Credit Card'].astype('Int64')
+
+result = df[df['Credit Card']==30246200000000.00]['Email']
+print(result)
+
+8.
+len(df[(df['CC Provider'] =='Mastercard') & (df['Purchase Price']>50)])
+
+9.
+df[['Email','Purchase Price','CC Provider']].head(10)
+
+11.
+df['Email'].apply(lambda x: x.split('@')[1]).value_counts().head(1)
+
+12.
+df.groupby('Job')['Purchase Price'].mean().head()
+
+13.
